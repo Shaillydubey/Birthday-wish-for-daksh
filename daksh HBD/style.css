@@ -1,0 +1,777 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --purple: #8c50e8;
+  --lavender: #d9c0ff;
+  --pink: #ffcee9;
+  --text: #644782;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  padding: 25px 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Poppins', sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 10% 10%, #ffd9ef, transparent 35%),
+    radial-gradient(circle at 90% 20%, #d8c6ff, transparent 38%),
+    radial-gradient(circle at 50% 100%, #cceaff, transparent 40%),
+    linear-gradient(135deg, #fff5fc, #f0e6ff);
+  overflow-x: hidden;
+}
+
+/* Floating decorations */
+
+.decor {
+  position: fixed;
+  font-size: 30px;
+  pointer-events: none;
+  animation: float 4s ease-in-out infinite;
+  z-index: 0;
+}
+
+.decor-one { top: 9%; left: 7%; }
+.decor-two { top: 18%; right: 8%; animation-delay: .5s; }
+.decor-three { bottom: 14%; left: 9%; animation-delay: 1s; }
+.decor-four { bottom: 12%; right: 10%; animation-delay: 1.5s; }
+.decor-five { top: 48%; left: 3%; animation-delay: .8s; }
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(-6deg); }
+  50% { transform: translateY(-17px) rotate(8deg); }
+}
+
+/* Main container */
+
+.app {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 850px;
+}
+
+/* Screens: hide every page except active */
+
+.screen {
+  display: none;
+  width: 100%;
+  min-height: 580px;
+  padding: 42px 28px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  text-align: center;
+  border: 2px solid rgba(255,255,255,.95);
+  border-radius: 32px;
+  background: rgba(255,255,255,.78);
+  box-shadow: 0 22px 65px rgba(122,79,183,.16);
+  backdrop-filter: blur(15px);
+}
+
+.screen.active {
+  display: flex;
+  animation: appear .55s ease both;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Labels and headings */
+
+.top-label {
+  padding: 10px 19px;
+  border: 1px solid #ead4ff;
+  border-radius: 50px;
+  background: linear-gradient(110deg, #f0e3ff, #ffe5f3);
+  color: #8954cb;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+h1 {
+  color: #9251dd;
+  font-size: clamp(30px, 5vw, 46px);
+  font-weight: 800;
+  line-height: 1.3;
+}
+
+h2 {
+  max-width: 650px;
+  color: #8150c9;
+  font-size: clamp(24px, 4vw, 32px);
+  line-height: 1.4;
+}
+
+h3 {
+  color: #76509f;
+  font-size: 19px;
+  line-height: 1.6;
+}
+
+p {
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.subtext {
+  color: #806a9c;
+}
+
+.big-gift {
+  font-size: 95px;
+  margin: 5px 0;
+  filter: drop-shadow(0 12px 12px #bc92f44f);
+  animation: giftDance 2s ease-in-out infinite;
+}
+
+@keyframes giftDance {
+  0%, 100% { transform: translateY(0) rotate(-5deg); }
+  50% { transform: translateY(-12px) rotate(5deg); }
+}
+
+.emoji-heading {
+  font-size: 29px;
+  letter-spacing: 9px;
+}
+
+/* Buttons */
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.primary-btn {
+  margin-top: 8px;
+  padding: 14px 28px;
+  border: 2px solid white;
+  border-radius: 50px;
+  color: white;
+  background: linear-gradient(110deg, #bd83ff, #9251e8);
+  box-shadow: 0 9px 23px #a77ae84d;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.primary-btn:hover {
+  transform: translateY(-4px) scale(1.025);
+  box-shadow: 0 14px 28px #a77ae866;
+}
+
+.secondary-btn {
+  padding: 11px 23px;
+  border: 1px solid #e3c9ff;
+  border-radius: 50px;
+  color: #8052b5;
+  background: #f6eaff;
+}
+
+.secondary-btn:hover {
+  transform: translateY(-3px);
+}
+
+/* Question cards */
+
+.question-box {
+  width: 100%;
+  max-width: 650px;
+  padding: 25px 20px;
+  border: 1px solid #ead6ff;
+  border-radius: 24px;
+  background: linear-gradient(135deg, #fffaff, #f8edff);
+  box-shadow: 0 8px 24px #ac86d51a;
+}
+
+.question-box h3 {
+  margin-bottom: 20px;
+}
+
+.options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.option {
+  min-height: 58px;
+  padding: 12px;
+  border: 2px solid #e5ceff;
+  border-radius: 17px;
+  color: #75528f;
+  background: linear-gradient(120deg, #f1e5ff, #ffe8f4);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.option:hover {
+  transform: translateY(-3px);
+  border-color: #c69aff;
+}
+
+.option.selected {
+  color: white;
+  border-color: #a26ae7;
+  background: linear-gradient(120deg, #a96ff1, #e68dc9);
+  box-shadow: 0 6px 17px #a77ae83b;
+}
+
+.answer-message {
+  min-height: 27px;
+  color: #a15fc4;
+  font-size: 13px;
+}
+
+/* Birthday wish */
+
+.celebration-emoji {
+  font-size: 42px;
+  animation: float 2.5s ease-in-out infinite;
+}
+
+.wish-card {
+  max-width: 580px;
+  padding: 25px;
+  border: 2px dashed #d8b5ff;
+  border-radius: 24px;
+  background: linear-gradient(135deg, #fff9fc, #f1e6ff);
+}
+
+.wish-card p + p {
+  margin-top: 12px;
+}
+
+.final-wish {
+  color: #9656d9;
+  font-weight: 700;
+}
+
+/* Single photo frame */
+
+.photo-frame {
+  width: min(100%, 320px);
+  padding: 12px 12px 18px;
+  border: 1px solid #f4dfff;
+  border-radius: 12px;
+  background: white;
+  box-shadow: 0 12px 30px #966bc92d;
+  transform: rotate(-2deg);
+  transition: transform .3s ease;
+}
+
+.photo-frame:hover {
+  transform: rotate(0) scale(1.02);
+}
+
+.photo-caption {
+  padding: 5px 0 12px;
+  color: #9a66c6;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.photo-frame img {
+  display: block;
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 7px;
+  background: #f2e5ff;
+}
+
+.photo-note {
+  color: #9875b4;
+  font-size: 12px;
+}
+
+.final-message {
+  color: #8d51d2;
+  font-weight: 700;
+}
+
+/* Footer */
+
+.footer-note {
+  margin-top: 8px;
+  color: #9879b7;
+  font-size: 12px;
+}
+
+/* Confetti */
+
+.confetti-piece {
+  position: fixed;
+  top: -20px;
+  z-index: 99;
+  pointer-events: none;
+  animation: fall 3.5s linear forwards;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(110vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+  body {
+    padding: 14px 9px;
+  }
+
+  .screen {
+    min-height: 540px;
+    padding: 30px 16px;
+    gap: 17px;
+    border-radius: 25px;
+  }
+
+  .options {
+    grid-template-columns: 1fr;
+  }
+
+  .option {
+    min-height: 49px;
+  }
+
+  .big-gift {
+    font-size: 75px;
+  }
+
+  .wish-card {
+    padding: 18px;
+  }
+
+  .photo-frame img {
+    height: 230px;
+  }
+
+  .decor {
+    font-size: 23px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+  }
+}
+
+
+
+/* =====================================
+   🌙 LAVENDER NIGHT & GOOD VIBES THEME
+===================================== */
+
+body {
+  position: relative;
+  isolation: isolate;
+  background: linear-gradient(
+    180deg,
+    #100e31 0%,
+    #272052 42%,
+    #594579 72%,
+    #b59bd1 100%
+  );
+  background-attachment: fixed;
+  color: #f8edff;
+}
+
+/* Night background layer */
+
+.night-sky {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: -1;
+  background:
+    radial-gradient(ellipse at 75% 15%, #a993e833, transparent 35%),
+    linear-gradient(180deg, #100e31, #302653 65%, #765e91);
+}
+
+/* Glowing moon */
+
+.moon {
+  position: absolute;
+  top: 9%;
+  right: 14%;
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  background: #fff5d5;
+  box-shadow:
+    0 0 20px #fff5d5,
+    0 0 55px #d8c1ff99,
+    0 0 100px #d8c1ff55;
+  animation: moonGlow 4s ease-in-out infinite;
+}
+
+@keyframes moonGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px #fff5d5, 0 0 55px #d8c1ff99;
+  }
+  50% {
+    box-shadow: 0 0 35px #fff5d5, 0 0 90px #d8c1ffcc;
+  }
+}
+
+/* Twinkling stars */
+
+.night-stars,
+.fireflies {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  color: #fff0c9;
+  letter-spacing: 13px;
+  animation: twinkle 2.5s ease-in-out infinite alternate;
+}
+
+.night-stars {
+  top: 8%;
+  font-size: 21px;
+}
+
+.fireflies {
+  bottom: 28%;
+  color: #ffe9a9;
+  font-size: 20px;
+  animation-duration: 3.5s;
+}
+
+@keyframes twinkle {
+  from { opacity: .35; transform: translateY(0); }
+  to { opacity: 1; transform: translateY(-8px); }
+}
+
+/* Mountain silhouettes */
+
+.mountain {
+  position: absolute;
+  left: -10%;
+  width: 120%;
+  bottom: 8%;
+  clip-path: polygon(
+    0 75%, 12% 36%, 22% 65%, 35% 10%,
+    48% 66%, 61% 25%, 75% 68%, 87% 35%,
+    100% 72%, 100% 100%, 0 100%
+  );
+}
+
+.mountain-back {
+  height: 37%;
+  background: linear-gradient(145deg, #49406f, #252346);
+  opacity: .9;
+  animation: mountainDrift 12s ease-in-out infinite alternate;
+}
+
+.mountain-front {
+  height: 26%;
+  bottom: 5%;
+  background: linear-gradient(145deg, #30284e, #18182f);
+  clip-path: polygon(
+    0 60%, 15% 20%, 28% 65%, 44% 28%,
+    60% 75%, 75% 18%, 90% 62%, 100% 45%,
+    100% 100%, 0 100%
+  );
+  animation: mountainDrift 16s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes mountainDrift {
+  from { transform: translateX(-1%); }
+  to { transform: translateX(1%); }
+}
+
+/* Flowing lavender river */
+
+.river {
+  position: absolute;
+  bottom: 0;
+  left: -20%;
+  width: 140%;
+  height: 15%;
+  background: linear-gradient(
+    180deg,
+    #a99de6aa,
+    #776fc5,
+    #b8a4ed
+  );
+  clip-path: polygon(
+    0 45%, 12% 30%, 25% 55%, 40% 35%,
+    55% 60%, 70% 38%, 85% 52%, 100% 30%,
+    100% 100%, 0 100%
+  );
+  animation: riverFlow 6s ease-in-out infinite alternate;
+}
+
+@keyframes riverFlow {
+  from { transform: translateX(-3%) scaleY(1); }
+  to { transform: translateX(3%) scaleY(1.08); }
+}
+
+/* Floating emoji decorations */
+
+.decor {
+  filter: drop-shadow(0 0 10px #f5c9ff80);
+  animation: float 4s ease-in-out infinite;
+}
+
+.decor-one { color: #d9baff; }
+.decor-two { animation-delay: .7s; }
+.decor-three { animation-delay: 1.2s; }
+.decor-four { animation-delay: 1.7s; }
+.decor-five { animation-delay: .4s; }
+
+/* Glass-style birthday card */
+
+.screen {
+  position: relative;
+  border: 1px solid #ffffff65;
+  background: linear-gradient(
+    145deg,
+    #ffffffed,
+    #f0e6ffed
+  );
+  box-shadow:
+    0 20px 60px #0b082c66,
+    0 0 35px #cba5ff26,
+    inset 0 0 25px #ffffffaa;
+  color: #644782;
+}
+
+/* Large glowing birthday gift 🎁 */
+
+.big-gift {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 170px;
+  height: 170px;
+  margin: 5px 0 10px;
+  border: 2px solid #ffffffbb;
+  border-radius: 40% 45% 42% 48%;
+  background:
+    radial-gradient(circle at 30% 20%, #ffffff, transparent 25%),
+    linear-gradient(135deg, #efd7ff, #b28aff 55%, #ffb9e3);
+  box-shadow:
+    0 0 25px #d9a8ff99,
+    0 0 55px #d9a8ff55,
+    inset 0 0 22px #ffffffaa;
+  font-size: 100px;
+  animation: magicalGift 3s ease-in-out infinite;
+}
+
+.big-gift::before {
+  content: "✨";
+  position: absolute;
+  top: 4px;
+  right: -18px;
+  font-size: 30px;
+  animation: sparkleSpin 4s linear infinite;
+}
+
+.big-gift::after {
+  content: "💗";
+  position: absolute;
+  bottom: 0;
+  left: -17px;
+  font-size: 24px;
+  animation: heartFloat 2s ease-in-out infinite;
+}
+
+@keyframes magicalGift {
+  0%, 100% {
+    transform: translateY(0) rotate(-3deg) scale(1);
+  }
+  50% {
+    transform: translateY(-12px) rotate(3deg) scale(1.04);
+  }
+}
+
+@keyframes sparkleSpin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes heartFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Extra dreamy title */
+
+h1 {
+  background: linear-gradient(
+    90deg,
+    #8d50dc,
+    #e879bd,
+    #9865ed,
+    #8d50dc
+  );
+  background-size: 250% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: titleGlow 6s linear infinite;
+}
+
+@keyframes titleGlow {
+  to { background-position: 250% center; }
+}
+
+/* Soft glowing buttons */
+
+.primary-btn {
+  background: linear-gradient(110deg, #bd83ff, #8c4de4, #e184c4);
+  background-size: 200% auto;
+  box-shadow:
+    0 8px 25px #a77ae866,
+    0 0 18px #cfa6ff33;
+  animation: buttonGlow 4s ease-in-out infinite;
+}
+
+@keyframes buttonGlow {
+  0%, 100% {
+    background-position: 0% center;
+    box-shadow: 0 8px 25px #a77ae855;
+  }
+  50% {
+    background-position: 100% center;
+    box-shadow: 0 8px 35px #e4a6ff88;
+  }
+}
+
+/* Good-vibe wish card */
+
+.wish-card {
+  border-color: #e4c5ff;
+  background: linear-gradient(135deg, #fffaff, #f1e4ff, #ffeafa);
+  box-shadow: 0 10px 30px #9f77d822;
+}
+
+/* Photo frame */
+
+.photo-frame {
+  border: 2px solid #fff;
+  box-shadow:
+    0 15px 35px #53386a35,
+    0 0 20px #edc9ff44;
+  animation: photoFloat 5s ease-in-out infinite;
+}
+
+@keyframes photoFloat {
+  0%, 100% { transform: rotate(-2deg) translateY(0); }
+  50% { transform: rotate(1deg) translateY(-6px); }
+}
+
+/* Responsive night scene */
+
+@media (max-width: 600px) {
+  .moon {
+    width: 48px;
+    height: 48px;
+    right: 9%;
+  }
+
+  .mountain-back {
+    height: 25%;
+  }
+
+  .mountain-front {
+    height: 18%;
+  }
+
+  .river {
+    height: 10%;
+  }
+
+  .big-gift {
+    width: 135px;
+    height: 135px;
+    font-size: 78px;
+  }
+
+  .night-stars {
+    font-size: 14px;
+    letter-spacing: 6px;
+  }
+}
+
+
+
+/* 🌙 Slow and peaceful animations */
+
+.decor {
+  animation-duration: 8s !important;
+}
+
+.big-gift {
+  animation-duration: 6s !important;
+}
+
+.big-gift::before {
+  animation-duration: 8s !important;
+}
+
+.big-gift::after {
+  animation-duration: 5s !important;
+}
+
+.moon {
+  animation-duration: 7s !important;
+}
+
+.night-stars {
+  animation-duration: 5s !important;
+}
+
+.fireflies {
+  animation-duration: 7s !important;
+}
+
+.mountain-back {
+  animation-duration: 25s !important;
+}
+
+.mountain-front {
+  animation-duration: 30s !important;
+}
+
+.river {
+  animation-duration: 12s !important;
+}
+
+.photo-frame {
+  animation-duration: 8s !important;
+}
+
+.primary-btn {
+  animation-duration: 7s !important;
+}
+
+h1 {
+  animation-duration: 9s !important;
+}

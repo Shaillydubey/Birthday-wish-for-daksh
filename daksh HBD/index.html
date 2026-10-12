@@ -1,0 +1,195 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A Little Birthday Surprise 💜</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+
+  <div class="decor decor-one">💜</div>
+  <div class="decor decor-two">🎈</div>
+  <div class="decor decor-three">⭐</div>
+  <div class="decor decor-four">🦋</div>
+  <div class="decor decor-five">💗</div>
+
+
+  
+<!-- Dreamy mountain night background -->
+<div class="night-sky" aria-hidden="true">
+  <div class="moon"></div>
+  <div class="night-stars">✦　·　✧　·　✦　·　✧　·　✦</div>
+  <div class="mountain mountain-back"></div>
+  <div class="mountain mountain-front"></div>
+  <div class="river"></div>
+  <div class="fireflies">✧　·　✦　·　✧　·　✦　·　✧</div>
+</div>
+
+
+  <main class="app">
+
+    <!-- PAGE 1: WELCOME -->
+    <section id="welcome" class="screen active">
+
+      <div class="top-label">✨ A LITTLE SURPRISE FOR YOU ✨</div>
+
+      <div class="big-gift">🎁</div>
+
+      <h1>Hey, Birthday Boy! 💗</h1>
+
+      <p>Today is all about you! 🎂</p>
+      <p class="subtext">
+        A tiny surprise, a little happiness<br>
+        and lots of birthday wishes! 💜
+      </p>
+
+      <button class="primary-btn" onclick="startSurprise()">
+        Open Your Surprise ✨ →
+      </button>
+
+      <div class="footer-note">Made with a little extra happiness 💜</div>
+
+    </section>
+
+
+    <!-- PAGE 2: QUESTION 1 -->
+    <section id="question1" class="screen">
+
+      <div class="top-label">🎀 A LITTLE BIRTHDAY GAME</div>
+
+      <div class="emoji-heading">🌷 💫 🌷</div>
+
+      <h2>Ready for a tiny birthday quiz? 🥳</h2>
+
+      <p>First question, no pressure! 😌</p>
+
+      <div class="question-box">
+        <h3>What's your birthday mood today? 🎂</h3>
+
+        <div class="options">
+          <button class="option" onclick="selectAnswer(this)">
+            😎 Full celebration
+          </button>
+
+          <button class="option" onclick="selectAnswer(this)">
+            🥹 Feeling special
+          </button>
+
+          <button class="option" onclick="selectAnswer(this)">
+            😂 Just here for cake
+          </button>
+        </div>
+      </div>
+
+      <p id="answer-message" class="answer-message">
+        Choose whichever feels like you 💜
+      </p>
+
+      <button class="primary-btn" onclick="goToQuestion2()">
+        Next Question 💌 →
+      </button>
+
+    </section>
+
+
+    <!-- PAGE 3: QUESTION 2 -->
+    <section id="question2" class="screen">
+
+      <div class="top-label">💌 ONE LAST QUESTION</div>
+
+      <div class="emoji-heading">🧸 💖 ✨</div>
+
+      <h2>One birthday wish! 🌟</h2>
+
+      <div class="question-box">
+        <h3>What would make today even better? 🎁</h3>
+
+        <div class="options">
+          <button class="option" onclick="selectAnswer(this)">
+            🍰 Lots of cake
+          </button>
+
+          <button class="option" onclick="selectAnswer(this)">
+            🎉 A fun surprise
+          </button>
+
+          <button class="option" onclick="selectAnswer(this)">
+            💗 Happy memories
+          </button>
+        </div>
+      </div>
+
+      <p id="answer-message" class="answer-message">
+        Pick your birthday vibe ✨
+      </p>
+
+      <button class="primary-btn" onclick="showBirthdayWish()">
+        Open Your Birthday Wish 💜 →
+      </button>
+
+    </section>
+
+
+    <!-- PAGE 4: BIRTHDAY WISH + ONE PHOTO -->
+    <section id="birthday" class="screen">
+
+      <div class="top-label">🎉 YOUR LITTLE BIRTHDAY CORNER 🎉</div>
+
+      <div class="celebration-emoji">🎂🎈💜</div>
+
+      <h1>Happy Birthday! 🥳</h1>
+
+      <div class="wish-card">
+        <p>
+          Wishing you a day full of smiles, laughter
+          and little moments that make you happy. 💗
+        </p>
+
+        <p>
+          May this new year bring you lots of success,
+          good memories, exciting adventures
+          and countless reasons to smile! 🌷
+        </p>
+
+        <p class="final-wish">
+          Keep smiling, keep shining<br>
+          and enjoy your special day! ✨
+        </p>
+      </div>
+
+      <div class="photo-frame">
+        <div class="photo-caption">A little memory 💕</div>
+
+        <img
+          id="special-photo"
+          src="brithday.jpeg"
+          alt="A special birthday memory"
+        >
+      </div>
+
+      <p class="photo-note">One photo, one little memory 💌</p>
+
+      <button class="primary-btn" onclick="makeAWish()">
+        Make a Birthday Wish 🌠
+      </button>
+
+      <p id="final-message" class="final-message"></p>
+
+      <button class="secondary-btn" onclick="replaySurprise()">
+        ↺ Replay Surprise
+      </button>
+
+      <div class="footer-note">Sending you birthday happiness 💜</div>
+
+    </section>
+
+  </main>
+
+  <div id="confetti-container"></div>
+
+</body>
+</html>
